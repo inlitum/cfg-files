@@ -1,0 +1,22 @@
+#! /bin/bash
+
+pgrep -x sxhkd > /dev/null || sxhkd -c /home/jborrie/.config/sxhkd/sxhkdrc &
+
+bspc monitor -d terminal code web music chat
+
+bspc config border_width 	1
+bspc config window_gap 		12
+
+bspc config split_ratio 	0.52
+bspc config borderless_monocle 	true
+bspc config gapless_monocle 	true
+
+$("/home/jborrie/ldev/cfg-files/config/polybar/launch.sh") &
+
+feh --bg-scale /usr/share/backgrounds/triangle.jpg &
+
+compton
+
+#dunst &
+
+xsetroot -cursor_name left_ptr
